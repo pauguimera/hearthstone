@@ -54,15 +54,21 @@ public class Main {
         return personatge ;
     }
     public static void batalla(Personatge jugador, Personatge rival) {
+
         while (jugador.getVida() > 0 && rival.getVida() > 0) {
+            //torn jugador
             jugador.atacar(rival);
-            if (rival.getVida() <= 0) {
-                break;
-            }
+            jugador.usarCarta(rival);
+
+            if (rival.getVida() <= 0) break;
+            //torn rival
             rival.atacar(jugador);
+            rival.usarCarta(jugador);
+
             System.out.println(jugador.getNom() + " vida: " + jugador.getVida());
             System.out.println(rival.getNom() + " vida: " + rival.getVida());
         }
+
         if (jugador.getVida() > 0) {
             System.out.println("Has guanyat");
         } else {

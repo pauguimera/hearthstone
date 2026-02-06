@@ -10,7 +10,7 @@ public class Guerrer extends Personatge {
 
     public void atacar(Personatge enemic) {
         int dany = getMal() + malExtra;
-        System.out.println(getNom() + " ataca i fa " + dany + " de dany.");
+        System.out.println(getNom() + " ataca i fa " + dany + " de mal");
         enemic.baixarVida(dany);
     }
     @Override

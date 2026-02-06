@@ -1,21 +1,20 @@
 public class Monstre extends Personatge {
-    private int agresivitat;
+    private int ferocitat;
 
-    public Monstre(String nom, int vida, int mal, int nivell, int agressivitat) {
+    public Monstre(String nom, int vida, int mal, int nivell, int ferocitat) {
         super(nom, vida, mal, nivell);
-        this.agresivitat = agressivitat;
+        this.ferocitat = ferocitat;
     }
 
+    @Override
     public void atacar(Personatge enemic) {
-        int dany = getMal() + (int)(Math.random() * agresivitat);
-        System.out.println(getNom() + " ataca de forma salvatge i fa " + dany + " de dany.");
+        int dany = getMal() + (int)(Math.random() * ferocitat);
+        System.out.println(getNom() + " ataca amb ferocitat i fa " + dany + " de mal");
         enemic.baixarVida(dany);
     }
 
-
-
     @Override
     public String toString() {
-        return super.toString()+" Agrestivitat "+ agresivitat;
+        return super.toString() + " Ferocitat " + ferocitat;
     }
 }

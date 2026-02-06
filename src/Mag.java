@@ -9,10 +9,17 @@ public class Mag extends Personatge {
         this.encanteri = encanteri;
     }
 
+    @Override
     public void atacar(Personatge enemic) {
+        if (mana < 10) {
+            System.out.println(getNom() + " no té mana per atacar");
+            return;
+        }
+
         int dany = getMal() + (int)(Math.random() * encanteri);
-        System.out.println(getNom() + " ataca de forma salvatge i fa " + dany + " de dany.");
+        System.out.println(getNom() + " ataca i fa " + dany + " de mal");
         enemic.baixarVida(dany);
+        mana -= 10;
     }
 
     @Override
